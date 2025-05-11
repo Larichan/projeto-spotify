@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 type SingleItemProps = {
     id: number;
     name: string;
-    artist: string;
+    artist?: string;
     image: string;
-    banner: string;
+    banner?: string;
     isArtist: boolean;
     path: string;
 }

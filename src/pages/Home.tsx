@@ -1,8 +1,8 @@
+import Main from "../components/Main"
+
 const Home = () => {
     return (
-        <div className="home">
-            <h1>Home</h1>
-        </div>
+        <Main />
     )
 }
 

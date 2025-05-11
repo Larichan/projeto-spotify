@@ -7,8 +7,8 @@ type ItemListProps = {
         id: number;
         name: string;
         image: string;
-        artist: string;
-        banner: string;
+        artist?: string;
+        banner?: string;
     }[];
     itemsOnDisplay: number;
     path: string;
