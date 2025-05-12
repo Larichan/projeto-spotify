@@ -2,22 +2,22 @@ import { faBackwardStep, faCirclePlay, faForwardStep } from "@fortawesome/free-s
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
-export default function Player() {
+type PlayerProps = {
+    backwardId: number;
+    forwardId: number;
+    duration?: string;
+}
 
-    const mockObj = {
-        backwardId: 1,
-        forwardId: 2,
-        duration: "02:34",
-    }
+export default function Player({ backwardId, forwardId, duration }: PlayerProps) {
 
     return (
         <div className="player">
             <div className="player__controllers">
-                <Link to={`/songs/${mockObj.backwardId}`}>
+                <Link to={`/songs/${backwardId}`}>
                     <FontAwesomeIcon className="player__icon" icon={faBackwardStep} />
                 </Link>
                 <FontAwesomeIcon className="player__icon player__icon--play" icon={faCirclePlay} />
-                <Link to={`/songs/${mockObj.forwardId}`}>
+                <Link to={`/songs/${forwardId}`}>
                     <FontAwesomeIcon className="player__icon" icon={faForwardStep} />
                 </Link>
             </div>
@@ -26,7 +26,7 @@ export default function Player() {
                 <div className="player__bar">
                     <div className="player__bar-progress"></div>
                 </div>
-                <p>{mockObj.duration}</p>
+                <p>{duration}</p>
             </div>
         </div>
     )

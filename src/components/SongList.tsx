@@ -1,33 +1,36 @@
+import { useState } from "react";
 import SongItem from "./SongItem";
 
-export default function SongList() {
+type SongListProps = {
+    songs: {
+        id: number;
+        name: string;
+        image: string;
+        duration: string;
+        audio: string;
+        artist: string
+    }[]
+}
 
-    const mockSong = {
-        id: 1,
-        name: "Song Name",
-        image: "https://i.scdn.co/image/ab67616d00001e02af41105c5cd91b28f2cf219d",
-        duration: "3:45",
-        index: 1
+export default function SongList({ songs }: SongListProps) {
+
+    const [numberOfShowingSongs, setNumberOfShowingSongs] = useState(5);
+
+    const handleSeeMore = () => {
+        setNumberOfShowingSongs(prev => prev + 5);
     }
 
     return (
         <div className="song-list">
-            <SongItem
-                {...mockSong}
-            />
-            <SongItem
-                {...mockSong}
-            />
-            <SongItem
-                {...mockSong}
-            />
-            <SongItem
-                {...mockSong}
-            />
-            <SongItem
-                {...mockSong}
-            />
-            <p className="song-list__see-more">Ver mais</p>
+            {songs.slice(0, numberOfShowingSongs).map((song, index) => (
+                <SongItem
+                    key={song.id}
+                    index={index + 1}
+                    {...song}
+                />
+            ))}
+
+            <p className="song-list__see-more" onClick={handleSeeMore}>Ver mais</p>
         </div>
     )
 }
