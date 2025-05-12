@@ -2,22 +2,35 @@ import { songsArray } from "../assets/songs.ts"
 import { artistArray } from "../assets/artists.ts"
 import ItemList from "./ItemList.tsx"
 
-const Main = () => {
+type MainProps = {
+    type?: string
+}
+
+const Main = (props: MainProps) => {
     return (
         <div className="main">
-            <ItemList
-                title="Artistas"
-                items={artistArray}
-                itemsOnDisplay={10}
-                path="/artist"
-            />
+            {props.type === "artist" || props.type === undefined ? (
+                <ItemList
+                    title="Artistas"
+                    items={artistArray}
+                    itemsOnDisplay={10}
+                    path="/artists"
+                />
+            ) :
+                <></>
+            }
 
-            <ItemList
-                title="Músicas"
-                items={songsArray}
-                itemsOnDisplay={20}
-                path="/song"
-            />
+            {props.type === "song" || props.type === undefined ? (
+                <ItemList
+                    title="Músicas"
+                    items={songsArray}
+                    itemsOnDisplay={20}
+                    path="/songs"
+                />
+            ) :
+                <></>
+            }
+
         </div>
     )
 }

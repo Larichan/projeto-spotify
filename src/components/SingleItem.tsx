@@ -8,7 +8,6 @@ type SingleItemProps = {
     artist?: string;
     image: string;
     banner?: string;
-    isArtist: boolean;
     path: string;
 }
 
@@ -28,7 +27,7 @@ export default function SingleItem(props: SingleItemProps) {
                     </p>
                 </div>
                 <p className="single-item__type">
-                    {props.isArtist ?? "Artista"}
+                    {props.artist ?? "Artista"}
                 </p>
             </div>
         </Link>

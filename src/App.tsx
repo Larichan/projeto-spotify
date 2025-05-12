@@ -13,10 +13,10 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/artist" element={<Artists />} />
-        <Route path="/artist/:id" element={<Artist />} />
-        <Route path="/song" element={<Songs />} />
-        <Route path="/song/:id" element={<Song />} />
+        <Route path="/artists" element={<Artists />} />
+        <Route path="/artists/:id" element={<Artist />} />
+        <Route path="/songs" element={<Songs />} />
+        <Route path="/songs/:id" element={<Song />} />
       </Routes>
     </BrowserRouter>
   )

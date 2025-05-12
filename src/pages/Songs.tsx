@@ -1,7 +1,7 @@
+import Main from "../components/Main";
+
 export default function Songs() {
     return (
-        <div>
-            Songs
-        </div>
+        <Main type="song" />
     )
 }
